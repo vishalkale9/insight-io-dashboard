@@ -1,0 +1,452 @@
+/* Container: Sidebar on the left, main screen on the right */
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Vertical Sidebar Navigation */
+.sidebar {
+  width: 80px;
+  height: 100%;
+  background-color: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  z-index: 10;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.logoIcon {
+  font-family: var(--font-cyber);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.logoSub {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuItem {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuItem:hover,
+.menuItemActive {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+}
+
+.profileSection {
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.profileSection:hover {
+  color: var(--text-light);
+}
+
+/* Main Screen Viewport (holds map & floating overlays) */
+.mainViewport {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+/* Floating HUD Capsules */
+.floatingCapsule {
+  background-color: var(--bg-card);
+  border-radius: 30px;
+  box-shadow: var(--shadow-md);
+  border: var(--border-light);
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Top-Left: Status Capsule */
+.statusCapsule {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  gap: 12px;
+}
+
+.statusLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.statusVal {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.pauseBtn {
+  background: var(--bg-primary);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: background 0.2s;
+}
+
+.pauseBtn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Quick Goal Button underneath Status */
+.quickGoalBtn {
+  position: absolute;
+  top: 76px;
+  left: 20px;
+  background-color: var(--bg-card);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.72rem;
+  font-family: var(--font-cyber);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 5;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.quickGoalBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Top-Center: Telemetry Dashboard Capsule */
+.telemetryCapsule {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-capsule);
+  color: var(--text-light);
+  padding: 12px 28px;
+  border-radius: 40px;
+  gap: 24px;
+  font-size: 0.8rem;
+  box-shadow: var(--shadow-capsule);
+}
+
+.telemetryItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+}
+
+.telemetryVal {
+  font-family: var(--font-hud);
+  font-weight: 600;
+}
+
+.statusDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  box-shadow: 0 0 8px var(--color-green);
+}
+
+/* Top-Right: Modes & Trigger Capsules */
+.modeCapsule {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px;
+  gap: 4px;
+}
+
+.modeLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 0 10px;
+  font-family: var(--font-cyber);
+}
+
+.modeOption {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  font-family: var(--font-cyber);
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modeOptionActive {
+  background-color: var(--bg-capsule);
+  color: var(--text-light);
+}
+
+.initiateBtn {
+  position: absolute;
+  top: 76px;
+  right: 20px;
+  background-color: var(--bg-card);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.72rem;
+  font-family: var(--font-cyber);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 5;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.initiateBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Bottom-Left: Floating Camera View Overlay */
+.cameraOverlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 5;
+}
+
+.cameraCard {
+  width: 280px;
+  height: 160px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 2px solid #ffffff;
+}
+
+.sliderContainer {
+  background: var(--bg-card);
+  border: var(--border-light);
+  border-radius: 20px;
+  padding: 10px 6px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.sliderInput {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 8px;
+  height: 100px;
+  cursor: pointer;
+}
+
+/* Bottom-Right: Controls & Emergency Button */
+.controlsOverlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 5;
+}
+
+.emergencyStopBtn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-red);
+  color: var(--text-light);
+  border: 4px solid var(--accent-warning);
+  font-family: var(--font-cyber);
+  font-size: 0.55rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow:
+    var(--shadow-md),
+    0 0 10px rgba(239, 68, 68, 0.4);
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.emergencyStopBtn:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-sm);
+}
+
+.dpad {
+  width: 110px;
+  height: 110px;
+  background-color: #121824;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.dpadBtn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-family: var(--font-cyber);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.1s,
+    transform 0.1s;
+}
+
+.dpadBtn:hover {
+  color: var(--text-light);
+}
+
+.dpadBtn:active {
+  transform: scale(0.9);
+}
+
+.dpadUp {
+  top: 6px;
+  left: 39px;
+}
+.dpadDown {
+  bottom: 6px;
+  left: 39px;
+}
+.dpadLeft {
+  left: 6px;
+  top: 39px;
+}
+.dpadRight {
+  right: 6px;
+  top: 39px;
+}
+
+.dpadCenter {
+  position: absolute;
+  top: 38px;
+  left: 38px;
+  width: 34px;
+  height: 34px;
+  background-color: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.4rem;
+  color: #64748b;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Map Canvas Container */
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e7eb;
+  position: relative;
+}
+
+.mapCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Toggle at top center of map */
+.mapToggleBtn {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-capsule);
+  color: var(--text-light);
+  border: none;
+  font-family: var(--font-cyber);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
