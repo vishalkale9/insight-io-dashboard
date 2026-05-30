@@ -450,3 +450,108 @@
   z-index: 5;
   letter-spacing: 0.5px;
 }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  /* Transform Sidebar to Bottom Navbar */
+  .sidebar {
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    padding: 0 16px;
+    background-color: var(--bg-sidebar);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logoSection {
+    display: none;
+  }
+
+  .menuSection {
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .profileSection {
+    display: none;
+  }
+
+  /* Reposition and scale HUD elements */
+  .telemetryCapsule {
+    width: 95%;
+    top: 12px;
+    padding: 8px 16px;
+    gap: 12px;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+  }
+
+  .statusCapsule {
+    top: 85px;
+    left: 10px;
+    padding: 6px 12px;
+  }
+
+  .statusLabel {
+    font-size: 0.65rem;
+  }
+
+  .statusVal {
+    font-size: 0.75rem;
+  }
+
+  .modeCapsule {
+    top: 85px;
+    right: 10px;
+    padding: 4px;
+  }
+
+  .modeLabel {
+    display: none; /* hide label to save space */
+  }
+
+  .mapToggleBtn {
+    top: 135px;
+  }
+
+  .quickGoalBtn,
+  .initiateBtn {
+    display: none;
+  }
+
+  /* Camera PiP Overlay */
+  .cameraOverlay {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .cameraCard {
+    width: 140px;
+    height: 90px;
+  }
+
+  .sliderContainer {
+    height: 90px;
+  }
+
+  .sliderInput {
+    height: 60px;
+  }
+
+  /* Right-hand Controls (D-pad & E-Stop) */
+  .controlsOverlay {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(0.75);
+    transform-origin: bottom right;
+    gap: 8px;
+  }
+}
