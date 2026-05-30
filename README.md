@@ -56,3 +56,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 - **State Management**: Centralized React state manages the core `telemetry` (x, y, yaw, velocity) to ensure the 2D canvas, the Three.js 3D scene, and the UI all render in perfect synchronization at 60fps.
 - **Three.js Optimization**: The LiDAR point cloud utilizes highly optimized `Float32Arrays` with `BufferGeometry` and `PointsMaterial`, allowing it to handle tens of thousands of procedural points with zero performance drops.
 - **UI/UX**: Prioritized a dark, glassmorphic aesthetic to reduce eye strain for operators, mimicking mission-control grade software. 
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
